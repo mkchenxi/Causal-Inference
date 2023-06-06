@@ -9,9 +9,9 @@
 
 **Prerequisites (knowledge of topic):** 
 
-- - The basic knowledge of probability and statistics such as conditional probability,  hypothesis testing and regression.
-- - Experiences of working with data (with any software package). 
-- - No prior knowledge on causality and causal inference is required.  
+- The basic knowledge of probability and statistics such as conditional probability,  hypothesis testing and regression.
+- Experiences of working with data (with any software package). 
+- No prior knowledge on causality and causal inference is required.  
 
 
 **Hardware:**
