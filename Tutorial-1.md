@@ -209,6 +209,7 @@ plot(g)
 
 Based on the DAG, assume the following linear model system between these
 variables: 
+
 $$ 
 \begin{cases}
 X & =U_{1}+U_{2}+\epsilon_{X}\\
@@ -282,6 +283,7 @@ plot(g)
 
 Based on the DAG, assume the following linear model system between these
 variables: 
+
 $$ 
 \begin{cases}
 D & =X+U+\epsilon_{d}\\
