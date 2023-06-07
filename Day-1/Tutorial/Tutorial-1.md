@@ -3,9 +3,9 @@ Tutorial-1
 Xi Chen
 2023-06-07
 
-## **A Short Tutorial on DAGitty**
+# **A Short Tutorial on DAGitty**
 
-### Description
+## Description
 
 This is a short tutorial of DAGitty. We will focus on the basics of
 drawing DAGs and performing graphical analyses on DAGs. DAGitty covers
@@ -21,7 +21,7 @@ require(dagitty)
 
     ## Warning: package 'dagitty' was built under R version 4.2.3
 
-### The Basics
+## The Basics
 
 You may draw a DAG with a simple symbolic language used by DAGitty. To
 draw a DAG, you may use statement like: ‘dag{…}’, and within the curly
@@ -78,7 +78,7 @@ descendants(g,"W") #descendants of W
 
     ## [1] "W" "Z" "Y" "X" "T"
 
-### Path Analysis
+## Path Analysis
 
 Furthermore, you can analyze the paths between any pair of nodes using
 *paths()*. The function returns a list with the first element showing
@@ -121,7 +121,7 @@ impliedConditionalIndependencies(g)
     ## W _||_ Y | T, X, Z
     ## X _||_ Z | W
 
-### Adjustment Sets
+## Adjustment Sets
 
 Given a DAG, the package also gives suggestions of the set of variables
 for adjustments for the identification of a causal effect. This function
@@ -167,7 +167,7 @@ isAdjustmentSet(g,"T")
 
     ## [1] FALSE
 
-## Studying Two Special DAGs
+# Studying Two Special DAGs
 
 When we use the conditioning strategy, it is crucial to select the right
 set of X that ensure the conditional independence. Rosenbaum (2002)
@@ -184,7 +184,7 @@ DAGs. These examples alert us that not all variables are candidates for
 good controls. And they deepen our understanding of control variables
 and causality.
 
-### M-Bias
+## M-Bias
 
 M-bias appears in the following causal diagram with an M-structure. In
 the DAG, U1 and U2 are assumed to be unobserved and D, X, and Y are
@@ -260,7 +260,7 @@ DAG. Conditioning on X, on the other hand, makes D and Y not separated
 anymore. Intuitively, X contains information of both D and Y, as X
 shares a parent with D or Y.
 
-### Z-Bias (instrumental bias)
+## Z-Bias (instrumental bias)
 
 Z-bias appears in the following causal diagram. In the DAG, U is assumed
 to be unobserved and D, X, and Y are observed.
