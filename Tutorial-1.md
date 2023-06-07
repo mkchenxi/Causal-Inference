@@ -208,7 +208,8 @@ plot(g)
 ![](Tutorial-1_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 Based on the DAG, assume the following linear model system between these
-variables: $$ 
+variables: 
+$$ 
 \begin{cases}
 X & =U_{1}+U_{2}+\epsilon_{X}\\
 D & =U_{1}+\epsilon_{d}\\
@@ -280,7 +281,8 @@ plot(g)
 ![](Tutorial-1_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 Based on the DAG, assume the following linear model system between these
-variables: $$ 
+variables: 
+$$ 
 \begin{cases}
 D & =X+U+\epsilon_{d}\\
 Y & =D+U+\epsilon_{y}
