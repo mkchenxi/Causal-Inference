@@ -3,7 +3,9 @@ Tutorial-1
 Xi Chen
 2023-06-07
 
-### **Description**
+## **A Short Tutorial on DAGitty**
+
+### Description
 
 This is a short tutorial of DAGitty. We will focus on the basics of
 drawing DAGs and performing graphical analyses on DAGs. DAGitty covers
@@ -46,9 +48,10 @@ g <- dagitty('dag {
 plot(g)
 ```
 
-![](Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png)<!-- --> Given the
-DAG, you may request a bunch of things, such as parents, children,
-ancestors and descendants of nodes.
+![](Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+Given the DAG, you may request a bunch of things, such as parents,
+children, ancestors and descendants of nodes.
 
 ``` r
 #By convention, descendants(g,v) and ancestors(g,v) include v but children(g,v) and parents(g,v) do not.
@@ -163,3 +166,159 @@ isAdjustmentSet(g,"T")
 ```
 
     ## [1] FALSE
+
+## Studying Two Special DAGs
+
+When we use the conditioning strategy, it is crucial to select the right
+set of X that ensure the conditional independence. Rosenbaum (2002)
+wrote that “there is no reason to avoid adjustment for a variable
+describing subjects before treatment.” Similarly, Rubin (2007) wrote
+that “typically, the more conditional an assumption, the more acceptable
+it is.” Both argued that we should **control for all observed
+pretreatment covariate**. VanderWeele and Shpitser (2011) called it the
+pretreatment criterion.
+
+Judea Pearl (the inventor of DAG) disagreed with this recommendation and
+gave two counterexamples below. He got the counterexamples by studying
+DAGs. These examples alert us that not all variables are candidates for
+good controls. And they deepen our understanding of control variables
+and causality.
+
+### M-Bias
+
+M-bias appears in the following causal diagram with an M-structure. In
+the DAG, U1 and U2 are assumed to be unobserved and D, X, and Y are
+observed.
+
+``` r
+g <- dagitty('dag {
+    D [pos="0,2"]
+    U1 [pos="0,0"]
+    U2 [pos="2,0"]
+    X [pos="1,1"]
+    Y [pos="2,2"]
+    
+    D <- U1 -> X
+    X <- U2 -> Y
+}')
+
+plot(g)
+```
+
+![](Tutorial-1_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+Based on the DAG, assume the following linear model system between these
+variables: $$ 
+\begin{cases}
+X & =U_{1}+U_{2}+\epsilon_{X}\\
+D & =U_{1}+\epsilon_{d}\\
+Y & =U_{2}+\epsilon_{y}
+\end{cases}
+$$
+
+Assume all the variables and the random variables follow a standard
+normal distribution. We can then simulate the data like the following:
+
+``` r
+# suppose we use 1e+6 observations
+n <- 1e+6
+
+# setting seed for replication 
+set.seed(123)
+
+# simulate U1 and U2
+U1 <- rnorm(n)
+U2 <- rnorm(n)
+
+# simulate X, D, and Y
+X <- U1 + U2 + rnorm(n)
+D <- U1 + rnorm(n)
+Y <- U2 + rnorm(n)
+```
+
+Now, we are comparing the estimation of the effect of `D on Y` with
+vs. without `X` as a control variable.
+
+``` r
+beta_without_X <- round(summary(lm(Y ~ 0 + D))$coef[1, 1], 4)
+beta_with_X <- round(summary(lm(Y ~ 0 + D + X))$coef[1, 1], 4)
+
+result <- c(beta_without_X, beta_with_X, 0)
+names(result) <- c("Without_X", "With_X", "True_Effect")
+result
+```
+
+    ##   Without_X      With_X True_Effect 
+    ##      0.0001     -0.1996      0.0000
+
+We can see that when we do not control for X the regression gives us the
+true effect. However, the controlling of X leads to a big bias. This is
+because the rule of d-separation, D and Y are already d-separated on the
+DAG. Conditioning on X, on the other hand, makes D and Y not separated
+anymore. Intuitively, X contains information of both D and Y, as X
+shares a parent with D or Y.
+
+### Z-Bias (instrumental bias)
+
+Z-bias appears in the following causal diagram. In the DAG, U is assumed
+to be unobserved and D, X, and Y are observed.
+
+``` r
+g <- dagitty('dag {
+    D [pos="2,0"]
+    U [pos="3,-1"]
+    X [pos="1,0"]
+    Y [pos="4,0"]
+    
+    X -> D -> Y
+    D <- U -> Y
+}')
+
+plot(g)
+```
+
+![](Tutorial-1_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+
+Based on the DAG, assume the following linear model system between these
+variables: $$ 
+\begin{cases}
+D & =X+U+\epsilon_{d}\\
+Y & =D+U+\epsilon_{y}
+\end{cases}
+$$
+
+Assume all the variables and the random variables follow a standard
+normal distribution. We can then simulate the data like the following:
+
+``` r
+# simulate data 
+X = rnorm(n)
+U = rnorm(n)
+D = X + U + rnorm(n)
+Y = D + U + rnorm(n)
+```
+
+Now, we are comparing the estimation of the effect of `D on Y` with
+vs. without `X` as a control variable.
+
+``` r
+beta_without_X <- round(summary(lm(Y ~ 0 + D))$coef[1, 1], 4)
+beta_with_X <- round(summary(lm(Y ~ 0 + D + X))$coef[1, 1], 4)
+
+result <- c(beta_without_X, beta_with_X, 1)
+names(result) <- c("Without_X", "With_X", "True_Effect")
+result
+```
+
+    ##   Without_X      With_X True_Effect 
+    ##      1.3333      1.5000      1.0000
+
+We can see that when we do not control for X the regression has a bias
+of 0.33. However, the controlling of X leads to a bigger bias of 0.50.
+Here is the intuition. The treatment D is a function of X and U. If we
+condition on X, it is merely a function of U. Therefore, conditioning
+makes D “less random,” and more critically, makes the unmeasured
+confounder U play a more important role in D on Y. Consequently, the
+confounding bias due to U is amplified by conditioning on X. This
+idealized example illustrates the danger of over adjusting for some
+covariates.
