@@ -1,4 +1,4 @@
-Tutorial-1
+Tutorial-1: More controls, the merrier? Two examples of selecting control variables
 ================
 Xi Chen
 2023-06-07
