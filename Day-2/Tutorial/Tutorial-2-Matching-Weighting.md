@@ -164,7 +164,7 @@ tutorial, we will use logistic regression to obtain these propensity
 scores. The second part involves using weights that are based on the
 propensity scores to estimate the treatment effects.
 
-## Part 1: Estimating the propensity to use the AR
+## Step 1: Estimating the propensity to use the AR
 
 There are three variables that we can use to estimate the propensity to
 use the AR: `recency`, `frequency`, and `monetary`. These variables
@@ -225,6 +225,8 @@ hist(p[idx.1])
 ```
 
 ![](Tutorial-2-Matching-Weighting_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+## Step 2: Running weighted regressions to get the treatment effects 
 
 With the propensity score, we run weighted OLS to obtain the ATE, ATT
 and ATC.For ATE, we weight the treatment group and control group by
