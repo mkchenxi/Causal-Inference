@@ -104,7 +104,7 @@ or `ITT_Y`. This calculation gives us the effect of the assignment (or
 the incentive of 10 Amazon gift cards, worth in total at €1000). The
 formula for calcuating `ITT_Y` is:
 
-$$ITT_Y=\frac{\sum_{i=1}^N{Y_{i}^{obs}}\cdot A_i}{\sum_{i=1}^N{A_i}}-\frac{\sum_{i=1}^N{Y_{i}^{obs}}\cdot \left( 1-A_i \right)}{\sum_{i=1}^N{\left( 1-A_i \right)}}$$
+$$ITT_Y=\frac{\sum_{i=1}^{N}{Y_{i}^{obs}}\cdot A_i}{\sum_{i=1}^{N}{A_i}}-\frac{\sum_{i=1}^{N}{Y_{i}^{obs}}\cdot \left( 1-A_i \right)}{\sum_{i=1}^{N}{\left( 1-A_i \right)}}$$
 
 ``` r
 ITT_Y <- mean(loyalty$Y[loyalty$A==1])-
