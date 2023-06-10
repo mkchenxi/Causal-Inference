@@ -85,7 +85,7 @@ decision to join the loyalty program, as illustrated in the DAG below.
 First, we will estimate the intention-to-treat effect on joining the
 loyalty program, or `ITT_D`. The formula for calculating `ITT_D` is:
 
-$$ITT_D=\frac{\sum_{i=1}^N{D_{i}^{obs}}\cdot A_i}{\sum_{i=1}^N{A_i}}-\frac{\sum_{i=1}^N{D_{i}^{obs}}\cdot \left( 1-A_i \right)}{\sum_{i=1}^N{\left( 1-A_i \right)}}$$
+$$ITT_D=\frac{\sum {D_{i}^{obs}}\cdot A_i}{\sum {A_i}}-\frac{\sum {D_{i}^{obs}}\cdot \left( 1-A_i \right)}{\sum {\left( 1-A_i \right)}}$$
 
 ``` r
 ITT_D <- mean(loyalty$D[loyalty$A==1])-
