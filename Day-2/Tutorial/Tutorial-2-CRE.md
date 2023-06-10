@@ -172,8 +172,8 @@ as in the equations below.
 
 $$
 \begin{cases}
-	\hat{S}_{c}^{2}=\frac{1}{N_c-1}\sum_{i\in N_c}{\left( Y_{i}^{c}-\overline{Y^c} \right) ^2}\\
-	\hat{S}_{t}^{2}=\frac{1}{N_t-1}\sum_{j\in N_t}{\left( Y_{j}^{t}-\overline{Y^t} \right) ^2}\\
+	\hat{S}_{c}^{2}=\frac{1}{N_c-1}\sum_{i\in N_c}{\left( Y_{i}^{c}-\bar{Y^c} \right) ^2}\\
+	\hat{S}_{t}^{2}=\frac{1}{N_t-1}\sum_{j\in N_t}{\left( Y_{j}^{t}-\bar{Y^t} \right) ^2}\\
 \end{cases}
 $$
 
