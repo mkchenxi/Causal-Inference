@@ -72,7 +72,7 @@ From the results, we have an ATT of -5.49, indicating the electricity
 usage of the treatment group reduces on average by -5.49kWh each week
 under the dynamic pricing.
 
-# Exmaning the paralle trend assumption
+# Exmaning the parallel trend assumption
 
 Next, we run two sets of analyses to examine whether the pre-trends are
 parallel. Hopefully, the checks lend more credibility to the parallel
