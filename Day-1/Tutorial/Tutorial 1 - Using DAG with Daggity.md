@@ -48,7 +48,7 @@ g <- dagitty('dag {
 plot(g)
 ```
 
-![](Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png){width=50%}<!-- -->
+![|500](Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 Given the DAG, you may request a bunch of things, such as parents,
 children, ancestors and descendants of nodes.
