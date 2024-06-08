@@ -48,7 +48,6 @@ g <- dagitty('dag {
 plot(g)
 ```
 
-![](Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 <img src="Tutorial-1_files/figure-gfm/unnamed-chunk-2-1.png" width=50% height=50%>
 
 Given the DAG, you may request a bunch of things, such as parents,
