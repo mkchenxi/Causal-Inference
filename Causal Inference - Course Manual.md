@@ -93,7 +93,7 @@ Day 5:
 -  Assessing the assumption of unconfoundedness. 
 -  Sensitivity analysis in regression adjustment. 
 -  Placebo and falsification test in DID and RDD. 
--  Recent applications of machine learning techniques in causal inference. 
+-  *Recent applications of machine learning techniques in causal inference (if time allows)*. 
 
 
 **Literature.** 
