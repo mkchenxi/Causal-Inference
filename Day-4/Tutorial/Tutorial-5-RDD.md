@@ -61,7 +61,7 @@ of the cutoff $c$ and $K_1$ to the right. We can construct bins with the
 running variable $X_i \in (b_k, b_{k+1}]$, $\forall k=1,\cdots,K_0+K_1$,
 where: $$b_k=c-(K_0-k+1)h.$$ The average value of the outcome variable
 $Y_k$:
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+$$Y_k = \sum_{i=1}^{N} Y_{i} 1 \left( b_{k} < X_{i} \le b_{k+1} \right)$$
 
 We can create such RD plots with the package `rdrobust`, and you can
 find the package from the CRAN repository.
