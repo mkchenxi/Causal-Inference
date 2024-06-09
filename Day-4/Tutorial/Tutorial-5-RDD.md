@@ -95,8 +95,9 @@ rdplot(keyword_bid$revenue, keyword_bid$adrank,
                       nbins = c(100,100), ci=95)
 ```
 
-![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> You
-can also use the function to obtain the “optimal” bandwidth and the
+![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> 
+
+You can also use the function to obtain the “optimal” bandwidth and the
 number of bins:
 
 ``` r
