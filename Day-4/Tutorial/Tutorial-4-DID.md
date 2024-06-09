@@ -1,7 +1,7 @@
 Tutorial-4: DID Aanalysis for Low Carbon London Trial
 ================
 Xi Chen
-2023-06-10
+2024-06-09
 
 Load data `T4_Data.Rdata` and view the data head. For the data
 background, please refer to the data description file
@@ -42,8 +42,6 @@ require(fixest)
 ```
 
     ## Loading required package: fixest
-
-    ## Warning: package 'fixest' was built under R version 4.2.3
 
 With the data, we specify a two-way fixed effects regression like this:
 
@@ -128,6 +126,9 @@ see more details about this function.
 coefplot(att_placebo, sd = se_placebo)
 ```
 
+    ## The degrees of freedom for the t distribution could not be deduced. Using a Normal distribution instead.
+    ## Note that you can provide the argument `df.t` directly.
+
 ![](Tutorial-4-DID_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 From the plot, all the ATTs from the pseudo-ATTs are statistically
@@ -137,36 +138,95 @@ parallel between the treated and control group.
 ## Event study plots
 
 The second set of analysis for the parallel pre-trends is the event
-study plot. To create the plot, we add leads and lags to the main
-two-way fixed effects regression. We then examine the coefficients of
-these leads and lags, along with the actual treatment. If the pre-trends
-are parallel, we expect no significant coefficients for the leads
-variables.
-
-In the `fixest` package, we can easily create leads and lags using the
-`l(.)` function within the R formula. Please use `?l` for more details.
+study plot. To create the plot, we need to get the coefficients and
+standard errors estimation of all time periods interact with the
+treatment dummy. We use the first week of treatment as the baseline.
 
 ``` r
-# Run the regression with 5 leads and 5 lags
-twfe_event <- feols(usage ~ l(period,5:-5,fill = 0):group | meter_id + week_id,
+# run the two way fixed effect model with all weeks
+twfe_main_all <- feols(usage ~ i(week_id, group, ref = 26) | 
+                         meter_id + week_id,
            data = london_trial)
+
+# obtain the model summary and the event-study plot
+twfe_main_all_summary <- summary(twfe_main_all)
+iplot(twfe_main_all_summary)
 ```
 
-With the estimation results, we can create the event study plot with
-`coefplot` function.
+![](Tutorial-4-DID_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+The plot shows that some pre-treatment periods exhibit significant
+treatment effects, and some post-treatment periods insignificant
+effects. The significance of pre-periods is more concerning, as it
+implies the parallel trend assumption may be violated.
+
+The phenomenon is known as **Ashenfelter’s dip** - the outcome changes
+in the opposite direction just before people receive the treatment.
+Ashenfelter’s dip makes it clear that participants are systematically
+different from non-participants in the pre-treatment period.
+
+## Sensitivity analysis
+
+We are now ready to apply the `HonestDiD` package to do sensitivity
+analysis. To install and use the package, you need to run the following
+R codes:
 
 ``` r
-coefplot(twfe_event)
+install.packages("remotes")
+remotes::install_github("asheshrambachan/HonestDiD")
 ```
 
-![](Tutorial-4-DID_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+After installation, we first load the package:
 
-The plot shows that lead 3 and lead 5 are both significant. This is
-concerning as this indicates some increase on electricity usage for the
-treatment group right before the treatment started.
+``` r
+library("HonestDiD")
+```
 
-This phenomenon is known as “Ashenfelter’s dip” - the outcome changes in
-the opposite direction just before people receive the treatment.
-Ashenfelter’s dip makes it clear that participants are systematically
-different from non-participants in the pre-treatment period. Overall,
-this is alarming.
+For the sensitivity analysis, We will use the “relative magnitudes”
+restriction that allows the violation of parallel trends to be no more
+than $\bar{M}$ times larger than the worst pre-treatment violation of
+parallel trends. We need a few entries for the sensitivity analysis
+function:
+
+- **betahat**: the estimated coefficients in `twfe_main_all`.
+- **sigma**: the estimated var-cov matrix of coefficients.
+- **Mbarvec**: the values for $\bar{M}$.
+
+In addition, we also need to specify the number of pre-periods and
+post-periods of the reference week (week 26). You can change the
+reference week to other weeks for the check. In the following practice,
+we set the number of pre- and post-periods both to 5.
+
+``` r
+# get the coefficients of selected periods
+betahat <- twfe_main_all_summary$coefficients[21:30]
+sigma <- twfe_main_all_summary$cov.scaled[21:30, 21:30]
+```
+
+Next, we run the sensitivity analysis:
+
+``` r
+sensitivity_results <-
+  createSensitivityResults_relativeMagnitudes(
+    betahat = betahat,
+    sigma = sigma,
+    numPrePeriods = 5, numPostPeriods = 5, 
+    Mbarvec = seq(0, 2, by = 0.5),
+    l_vec = basisVector(index = 1, size = 5)
+  )
+
+sensitivity_results
+```
+
+    ## # A tibble: 5 × 5
+    ##       lb    ub method Delta    Mbar
+    ##    <dbl> <dbl> <chr>  <chr>   <dbl>
+    ## 1   1.07  16.8 C-LF   DeltaRM   0  
+    ## 2  -3.69  24.0 C-LF   DeltaRM   0.5
+    ## 3 -12.2   33.7 C-LF   DeltaRM   1  
+    ## 4 -22.1   43.9 C-LF   DeltaRM   1.5
+    ## 5 -32.2   54.0 C-LF   DeltaRM   2
+
+The results show that even a small deviation ($\delta_1=0.5\delta_0$)
+leads to insignificant estimation. Therefore, the results should be used
+with caution.
