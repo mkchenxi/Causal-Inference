@@ -1,9 +1,9 @@
-Tutorial-4: RDD for Keywords Bidding
+Tutorial-5: RDD for Keywords Bidding
 ================
 Xi Chen
-2023-06-10
+2024-06-09
 
-To follow this R notebook, please download and load data `T4_Data.RData`
+To follow this R notebook, please download and load data `T5_Data.RData`
 from Canvas.
 
 The data contain several variables to measure the position effects of
@@ -24,7 +24,7 @@ keywords. The variables are:
 - `revenue`: The revenue of the ad campaigns (in log scale)
 
 ``` r
-load("T4_Data.RData")
+load("T5_Data.RData")
 head(keyword_bid)
 ```
 
@@ -36,7 +36,7 @@ head(keyword_bid)
     ## 5 -2.9032828 Second Position 0.000000
     ## 6  0.2946558  First Position 4.732809
 
-# Data exploration
+# Data Visualization
 
 Before running the formal analysis, we first visualize the relationship
 between the running variable (`adrank`) and the outcome (`revenue`).
@@ -48,22 +48,64 @@ revenue and separate into two groups by `adposition`.
 ``` r
 library(ggplot2)
 ggplot(keyword_bid, aes(adrank, revenue, color = adposition)) + 
-  geom_point() + stat_smooth(method = "loess",colour = "black",size = 1) + 
-  geom_vline(xintercept=0, linetype="longdash")
+  geom_point() + geom_vline(xintercept=0, linetype="longdash")
 ```
 
-    ## `geom_smooth()` using formula 'y ~ x'
+![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
-![](Tutorial-4-RDD_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+However, this plot is a bit difficult to eyeball. In a RD design, it is
+important to visualize the data with a RD plot. RD plots first put the
+data into bins and then aggregate the data with bins. For some bandwidth
+(the width of the bins) $h$ and for the number of bins $K_0$ to the left
+of the cutoff $c$ and $K_1$ to the right. We can construct bins with the
+running variable $X_i \in (b_k, b_{k+1}]$, $\forall k=1,\cdots,K_0+K_1$,
+where: $$b_k=c-(K_0-k+1)h.$$ The average value of the outcome variable
+$Y_k$:
+$$Y_{k}=\frac{1}{N_{k}}\sum_{i=1}^{N}Y_{i}1\left(b_{k}<X_{i}\le b_{k+1}\right)$$
 
-From the plot, we indeed see a “jump” in `revenue` when `adposition`
-changes from the second position to the first position (or `adrank`
-changes from negative to positive). This is the initial evidence that
-the position effect exists. To quantify the effect, we need a
-model-based analysis, which starts with choosing the proper “bandwidth”
-to focus on a wind around the cutoff point `adrank = 0`.
+We can create such RD plots with the package `rdrobust`, and you can
+find the package from the CRAN repository.
 
-# Selecting a Bandwidth with cross-validation
+``` r
+require("rdrobust")
+```
+
+    ## Loading required package: rdrobust
+
+One decision about the RD plots is to select the number of bins. On one
+hand, too many bins (or narrower bins) represent the original data
+better and capture the “jumps” more easily, but the estimates ($Y_k$)
+will be highly imprecise. On the other hand, too few bins (or wider
+bins) may fail to account for important patterns (jumps) in the data.
+This is a very classic “variance-bias” tradeoff.
+
+Let’s try the `rdplot` function with 10 bins.
+
+``` r
+rdplot(keyword_bid$revenue, keyword_bid$adrank, 
+                      nbins = c(5,5), ci=95)
+```
+
+![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+Let’s try the `rdplot` function with 200 bins.
+
+``` r
+rdplot(keyword_bid$revenue, keyword_bid$adrank, 
+                      nbins = c(100,100), ci=95)
+```
+
+![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> You
+can also use the function to obtain the “optimal” bandwidth and the
+number of bins:
+
+``` r
+rdplot(keyword_bid$revenue, keyword_bid$adrank, binselect = "es")
+```
+
+![](Tutorial-5-RDD_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+# Selecting A Bandwidth with Cross-Validation
 
 The most important decision in running a regression discontinuity
 analysis is to select the proper bandwidth. The tradeoff here is a
@@ -192,7 +234,7 @@ H.MSE
     ## bw: 0.281 bw: 0.562 bw: 1.124 bw: 2.248 
     ## 0.9215618 0.8409203 1.2379521 1.3695525
 
-# Estimating the position effects
+# Estimating the Position Effects
 
 After having the MSEs of different bandwidths, we choose the bandwidth
 that gives the smallest MSE.
