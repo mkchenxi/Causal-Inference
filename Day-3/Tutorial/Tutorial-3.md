@@ -78,7 +78,7 @@ joining the program are more likely to join it. That is, the change in
 revenue from joining the loyalty program is probably correlated with the
 decision to join the loyalty program, as illustrated in the DAG below.
 
-![DAG Representation of the Non-compliance Problem](loyalty-DAG-1.png)
+<img src="loyalty-DAG-1.png" width=50% height=50%>
 
 # Analysis
 
