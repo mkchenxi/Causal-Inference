@@ -1,7 +1,7 @@
 Tutorial-3: Non-compliance in Coupon Field Experiments
 ================
 Xi Chen
-2023-06-10
+2024-06-10
 
 Pleas download `T3_Data.Rdata` for this tutorial.
 
