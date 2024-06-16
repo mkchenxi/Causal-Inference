@@ -205,7 +205,7 @@ g <- dagitty('dag {
 plot(g)
 ```
 
-![](Tutorial-1_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+<img src="Tutorial-1_files/figure-gfm/unnamed-chunk-9-1.png" width=50% height=50%>
 
 Based on the DAG, assume the following linear model system between these
 variables: 
@@ -279,7 +279,7 @@ g <- dagitty('dag {
 plot(g)
 ```
 
-![](Tutorial-1_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+<img src="Tutorial-1_files/figure-gfm/unnamed-chunk-12-1.png" width=50% height=50%>
 
 Based on the DAG, assume the following linear model system between these
 variables: 
