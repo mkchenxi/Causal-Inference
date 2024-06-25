@@ -342,8 +342,7 @@ discourage the usage of AR in the morning. In this question, you are
 expected to help the company to find possible heterogeneous treatment
 effects by applying the causal random forest method.
 
-1.  Use the generalized random forest package ([CLICK HERE](https://grf-labs.github.io/grf/){:target="_blank" rel="noopener"})
-    (<https://grf-labs.github.io/grf/>), train a causal forest and
+1.  Use the generalized random forest package ([CLICK HERE](https://grf-labs.github.io/grf/)), train a causal forest and
     estimate the average treatment effect. Report the personalized
     treatment effects predictions (a histogram with the median),
     estimated ATE and its 95% confidence interval. (10 points)
