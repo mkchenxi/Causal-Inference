@@ -250,9 +250,7 @@ below summarizes the variables from the data.
 | Order_day | factor | The date when the order is placed (in total 28 days). |
 | Order_hour | factor | The hour of the order is placed (24 hours). |
 
-Data Description
-
-More about the channel variables; the company categorize the channels
+**More about the channel variables**; the company categorizes the channels
 into different types:
 
 1.  Affiliate - Small partners, such as web blogs;
