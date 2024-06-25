@@ -140,8 +140,8 @@ histogram and exact p-value of the test**.
 <span style="color: blue">Hints:</span>
 
 -   <span style="color: blue">The null hypothesis is no difference in
-    GDP growth between D and R. So whoever runs a term, the GDP growth
-    will be the same for the term. </span>
+    GDP growth between D and R. So, under $H0$, the GDP growth
+    will be the same for a term whether the president is from D or R. </span>
 
 -   <span style="color: blue">The test is about the D-R gap, or average
     growth under 7 D terms minus that under 9 R terms. So, you may
