@@ -61,7 +61,7 @@ For the type-3 questions, the grading is based on:
 ### Question 1.1 DAG (10 points)
 
 <figure>
-<img src="DAG-1" />
+<img src="Figures/DAG-1.png" />
 </figure>
 
 **Please find all the backdoor and front-door paths that link *D* and
