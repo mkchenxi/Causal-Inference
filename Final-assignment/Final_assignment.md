@@ -82,7 +82,7 @@ weight for Females was 130 in both September and June. Thus, the average
 weight gain for Females was zero.
 
 <figure>
-<img src="Lord" />
+<img src="Figures/Lord.png" />
 </figure>
 
 **Question: What is the differential causal effect of the diet on male
