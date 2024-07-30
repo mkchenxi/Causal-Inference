@@ -146,10 +146,10 @@ effect if our identification strategy is valid.
 
 ### Rubrics
 
-For the DiD design, the data (treatment vs. control, before vs. after)
-each 1.5 points. The model and assumption is 1 point each.
-
-For the assessment of the assumption, it’s 5 points.
+* For the DiD design, the data (treatment vs. control, before vs. after)
+each 1.5 points.
+* The model and assumption is 1 point each.
+* For the assessment of the assumption, it’s 5 points.
 
 # Part II. Emiprical Questions
 
