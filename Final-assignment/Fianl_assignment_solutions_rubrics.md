@@ -10,20 +10,15 @@ Xi Chen
 ### Suggested solutions
 
 The backdoor path is a path which starts with X and ends with Y, with an
-arrow into X on one end and an arrow into Y on the other end,
-![X \leftarrow \cdots \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;X%20%5Cleftarrow%20%5Ccdots%20%5Crightarrow%20Y "X \leftarrow \cdots \rightarrow Y").
-This is the only requirement. Any nodes or links are allowed between X
-and Y.
+arrow into X on one end and an arrow into Y on the other end, $X \leftarrow \cdots \rightarrow Y$
+This is the only requirement. Any nodes or links are allowed between X and Y.
 
 The front door path is a path which starts with X and ends with Y, with
-an arrow from X on one end and an arrow into Y on the other end,
-![X \rightarrow \cdots \rightarrow \cdots \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;X%20%5Crightarrow%20%5Ccdots%20%5Crightarrow%20%5Ccdots%20%5Crightarrow%20Y "X \rightarrow \cdots \rightarrow \cdots \rightarrow Y").
+an arrow from X on one end and an arrow into Y on the other end, $X \rightarrow \cdots \rightarrow \cdots \rightarrow Y$.
 All the nodes in-between must also have a chain relationship.
 
 By these criteria, the backdoor paths are:
-![D \leftarrow B \rightarrow U \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Cleftarrow%20B%20%5Crightarrow%20U%20%5Crightarrow%20Y "D \leftarrow B \rightarrow U \rightarrow Y"),
-![D \leftarrow C \rightarrow O \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Cleftarrow%20C%20%5Crightarrow%20O%20%5Crightarrow%20Y "D \leftarrow C \rightarrow O \rightarrow Y"),
-![D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Cleftarrow%20C%20%5Crightarrow%20O%20%5Cleftarrow%20M%20%5Crightarrow%20Y "D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y").
+$D \leftarrow B \rightarrow U \rightarrow Y$, $D \leftarrow C \rightarrow O \rightarrow Y$, and $D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y$.
 
 The front door paths are:
 ![D \rightarrow N \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Crightarrow%20N%20%5Crightarrow%20Y "D \rightarrow N \rightarrow Y"),
