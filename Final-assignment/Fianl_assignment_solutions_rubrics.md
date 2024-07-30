@@ -38,13 +38,13 @@ Each path: 0.7 point.
 
 ### Suggested solutions
 
-1.  Units: students.
-2.  Treatment effects: the effects of the diet in the university dining
+1.  **Units**: students.
+2.  **Treatment effects**: the effects of the diet in the university dining
     halls on the weights of students.
-3.  Assignment mechanism: all students are under the treatment.
-4.  The assignment mechanism is unconfounded as all people, irrespective
+3.  **Assignment mechanism**: all students are under the treatment.
+4.  The assignment mechanism is **unconfounded** as all people, irrespective
     of their outcomes, are under treatment.
-5.  The causal effect is not identified as all students are in the same
+5.  The causal effect is **not identified** as all students are in the same
     causal states.
 
 Both statisticians are wrong, we cannot learn any info. about the causal
