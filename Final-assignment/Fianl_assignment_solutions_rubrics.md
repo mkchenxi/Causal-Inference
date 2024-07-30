@@ -101,7 +101,9 @@ With the permuted GDP gap values, we plot a histogram:
 hist(permute_dr_gap, breaks = 50)
 ```
 
-![](CIA---Suggested-solutions-and-rubrics_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+<figure>
+<img src="Figures/Fisher_exact_p_value.png" width="80%" height="80%"/>
+</figure>
 
 The exact p-value is calculated by the percentage of more extreme values
 than the true GDP growth gap:
