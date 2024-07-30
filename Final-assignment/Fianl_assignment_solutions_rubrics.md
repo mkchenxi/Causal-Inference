@@ -133,10 +133,10 @@ The histogram is 5 points. The exact p-value is also 5 points.
     “untreated”.
 * The model is a **linear panel data regression with individual- and
     time-fixed effects**.
-* The main assumptions is **the parallel trend assumption that the 
+- The main assumptions is **the parallel trend assumption that the 
     prices of GPUs, CPUs and RAMs would exhibit the same differences in
     trends**, had the prices of cryptocurrencies remained the same.
-    -- One way to assess the assumption is the knowledge that prices of the
+        -- One way to assess the assumption is the knowledge that prices of the
 non-minable cryto-currencies should NOT influence the prices of the
 GPUs. This is called a “pseudo-treatment.” If we run the analysis again
 with the non-minable cryto-currencies, we should not find any treatment
