@@ -23,9 +23,9 @@ By these criteria, the backdoor paths are:
 3. $D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y$.
 
 The front door paths are:
-![D \rightarrow N \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Crightarrow%20N%20%5Crightarrow%20Y "D \rightarrow N \rightarrow Y"),
-![D \rightarrow M \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Crightarrow%20M%20%5Crightarrow%20Y "D \rightarrow M \rightarrow Y"),
-![D \rightarrow M \rightarrow O \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Crightarrow%20M%20%5Crightarrow%20O%20%5Crightarrow%20Y "D \rightarrow M \rightarrow O \rightarrow Y").
+1. $D \rightarrow N \rightarrow Y$,
+2. $D \rightarrow M \rightarrow Y$, and
+3. $D \rightarrow M \rightarrow O \rightarrow Y$.
 
 ### Rubrics
 
