@@ -102,7 +102,7 @@ hist(permute_dr_gap, breaks = 50)
 ```
 
 <figure>
-<img src="Figures/Fisher_exact_p_value.png" width="80%" height="80%"/>
+<img src="Figures/Fisher_exact_p_value.png" width="60%" height="60%"/>
 </figure>
 
 The exact p-value is calculated by the percentage of more extreme values
