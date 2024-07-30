@@ -18,7 +18,9 @@ an arrow from X on one end and an arrow into Y on the other end, $X \rightarrow 
 All the nodes in-between must also have a chain relationship.
 
 By these criteria, the backdoor paths are:
-$D \leftarrow B \rightarrow U \rightarrow Y$, $D \leftarrow C \rightarrow O \rightarrow Y$, and $D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y$.
+1. $D \leftarrow B \rightarrow U \rightarrow Y$,
+2. $D \leftarrow C \rightarrow O \rightarrow Y$, and
+3. $D \leftarrow C \rightarrow O \leftarrow M \rightarrow Y$.
 
 The front door paths are:
 ![D \rightarrow N \rightarrow Y](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;D%20%5Crightarrow%20N%20%5Crightarrow%20Y "D \rightarrow N \rightarrow Y"),
