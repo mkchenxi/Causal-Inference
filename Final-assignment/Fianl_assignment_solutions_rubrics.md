@@ -272,9 +272,6 @@ ps <- predict(ps_logit,type = "response")
 ks.test(ps[data$AR_usage==1],ps[data$AR_usage==0],alternative = "two.sided")
 ```
 
-    ## Warning in ks.test(ps[data$AR_usage == 1], ps[data$AR_usage == 0], alternative =
-    ## "two.sided"): p-value will be approximate in the presence of ties
-
     ## 
     ##  Two-sample Kolmogorov-Smirnov test
     ## 
@@ -295,11 +292,7 @@ distributional differences in the propensity scores.
 ## Question 2.2
 
 To obtain the ATE, we first obtain the weights for treated and control
-units. For ATE, we weight the treatment group and control group by
-![\dfrac{1}{e}](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%5Cdfrac%7B1%7D%7Be%7D "\dfrac{1}{e}")
-and
-![\dfrac{1}{1-e}](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;%5Cdfrac%7B1%7D%7B1-e%7D "\dfrac{1}{1-e}"),
-respectively.
+units. For ATE, we weight the treatment group and control group by $\dfrac{1}{e}$ and $\dfrac{1}{1-e}$, respectively.
 
 ``` r
 wts <- ifelse(data$AR_usage==1,1/ps,1/(1-ps))
