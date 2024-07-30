@@ -122,25 +122,12 @@ The histogram is 5 points. The exact p-value is also 5 points.
 ## Question 1.4
 
 * A diff-in-diff strategy can make use of two variations:
-    1.  **The change of prices in minable cryptocurrencies over time**. For
-    example, we can identify some change points in the prices of
-    cryptocurrencies and use the before time as “before treatment” and
-    the after time as “after treatment.”
-    2.  **For the other variation of the treated vs. non-treated, we can make
-    use of the fact only GPU prices are responsive to the prices of
-    cryptocurrencies** as the GPUs are the main parts that are used by
-    miners. So, we use GPUs as “treated”, and CPUs or RAMs as
-    “untreated”.
-* The model is a **linear panel data regression with individual- and
-    time-fixed effects**.
-* The main assumptions is **the parallel trend assumption that the 
-    prices of GPUs, CPUs and RAMs would exhibit the same differences in
-    trends**, had the prices of cryptocurrencies remained the same.
-        1. One way to assess the assumption is the knowledge that prices of the
-non-minable cryto-currencies should NOT influence the prices of the
-GPUs. This is called a “pseudo-treatment.” If we run the analysis again
-with the non-minable cryto-currencies, we should not find any treatment
-effect if our identification strategy is valid.
+    1.  **The change of prices in minable cryptocurrencies over time**. For example, we can identify some change points in the prices of
+    cryptocurrencies and use the before time as “before treatment” and the after time as “after treatment.”
+    2.  **For the other variation of the treated vs. non-treated, we can make use of the fact only GPU prices are responsive to the prices of cryptocurrencies** as the     GPUs are the main parts that are used by miners. So, we use GPUs as “treated”, and CPUs or RAMs as “untreated”.
+* The model is a **linear panel data regression with individual- and time-fixed effects**.
+* The main assumptions is **the parallel trend assumption that the prices of GPUs, CPUs and RAMs would exhibit the same differences in trends**, had the prices of cryptocurrencies remained the same.
+    1. One way to assess the assumption is the knowledge that prices of the non-minable cryto-currencies should NOT influence the prices of the GPUs. This is     called a “pseudo-treatment.” If we run the analysis again with the non-minable cryto-currencies, we should not find any treatment effect if our identification strategy is valid.
 
 ### Rubrics
 
