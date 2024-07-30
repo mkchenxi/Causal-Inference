@@ -429,12 +429,9 @@ ATE_weighting_se
 
 ### Rubrics
 
-- For the estimation using the weighted logistic model, the coefficients
-  and standard error of AR_usage are 2.5 point each. The results should
-  be similar to what reported in the notebook.
-- For the calculation of ATE, the estimate should be similar to the
-  reported value in the notebook. The ATE value is 5.0 point.
-    -- Here I use the Neyman s.e. idea. Other s.e. ideas for ATE are also applicable. The calculation of standard error is tricky. The most “legit” approach is to use     a boostrapping procedure by repeated estimate the model, and then obtain the counterfactual calculations. This will consider both the errors from the model             calibration and the sampling. To save trouble, I did not use the boostrapping procedure.
+- For the estimation using the weighted logistic model, the coefficients and standard error of AR_usage are 2.5 point each. The results should be similar to what reported in the notebook.
+- For the calculation of ATE, the estimate should be similar to the reported value in the notebook. The ATE value is 5.0 point.
+    -- Here I use the Neyman s.e. idea. Other s.e. ideas for ATE are also applicable. The calculation of standard error is tricky. The most “legit” approach is to use a boostrapping procedure by repeated estimate the model, and then obtain the counterfactual calculations. This will consider both the errors from the model       calibration and the sampling. To save trouble, I did not use the boostrapping procedure.
 - The s.e. is 5.0 point.
 
 ## Question 2.3
