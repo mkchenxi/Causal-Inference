@@ -66,9 +66,6 @@ library(readr)
 DR_Gap <- read_csv("DR_Gap.csv", col_types = cols(...1 = col_skip()))
 ```
 
-    ## New names:
-    ## * `` -> `...1`
-
 The difference in GDP growths between the democrat and the republican
 presidents in the data is:
 
