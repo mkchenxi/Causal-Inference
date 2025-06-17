@@ -40,9 +40,11 @@ Causal questions in the form of how X influences Y are pervasive in real life. I
 
 This course provides you with conceptual understandings, as well as tools to learn causality from data. These understandings and tools come from the rapidly developing science of causal inference. On the conceptual level, the course covers basic concepts such as causation vs. correlation, causal inference, causal identification and counterfactual. It also presents perspectives and tools to help you formalize and conceptualize causal relationships. These perspectives and tools are synergized from multiple disciplines, including statistics (e.g., Robin Causal Model or Potential Outcome Framework), computer science (e.g., Pearlian Causal Model or Causal Graph), and econometrics (e.g., identification strategies and local average treatment effect). 
 
-In this course, we will also discuss a selection of tools in causal inference. We will start with the completely randomized experiment and discuss the assignment mechanism, Fisher’s exact p-value, and Neyman’s repeated sampling approach. From then on, we will gradually relax the assumptions of complete randomization and discuss situations where the complete randomization does not hold. Specifically, we will discuss the following: First, block randomization and conditional random assignment, with a focus on matching and weighting estimators; Second, non-compliance where the random assignment fails and the local average treatment effects; Third, attrition where some outcomes are missing and the bounding approach to attrition; Fourth, research designs when the assignment mechanism is unknown to or uncontrolled by us, including the difference-in-difference approach and regression discontinuity design. Moreover, in the last day of the course, we will discuss the ethics of causal inference and the assessment of the unconfoundedness assumption. As the “finale,” we will go through the most recent developments in the intersection between causal inference and machine learning, where machine learning techniques are used to address causal inference problems.  
+In this course, we will also discuss a selection of tools in causal inference. We will start with the completely randomized experiment and discuss the assignment mechanism, Fisher’s exact p-value, and Neyman’s repeated sampling approach. From then on, we will gradually relax the assumptions of complete randomization and discuss situations where the complete randomization does not hold. Specifically, we will discuss the following: First, block randomization and conditional random assignment, with a focus on matching and weighting estimators; Second, non-compliance where the random assignment fails and the local average treatment effects; Third, attrition where some outcomes are missing and the bounding approach to attrition; Fourth, research designs when the assignment mechanism is unknown to or uncontrolled by us, including the difference-in-difference approach and regression discontinuity design. Moreover, in the last day of the course, we will discuss the ethics of causal inference and the assessment of the unconfoundedness assumption. 
 
-One major distinction of the course is its emphasis on practical relevance. Throughout the course, you are given cases and real data to apply what you learn to real causal inference problems. The course is split between lectures and practical sessions. Cases and data will be provided by the instructor before class. 
+
+
+Another distinction of the course is its emphasis on practical relevance. Throughout the course, you are given cases and real data to apply what you learn to real causal inference problems. The course is split between lectures and practical sessions. Cases and data will be provided by the instructor before class. 
 
 
 **Structure.** 
@@ -91,16 +93,20 @@ Day 5:
 
 -  Ethics of causal inference: being transparent about your assumptions. 
 -  Assessing the assumption of unconfoundedness. 
--  Sensitivity analysis in regression adjustment. 
--  Placebo and falsification test in DID and RDD. 
--  *Recent applications of machine learning techniques in causal inference (if time allows)*. 
+-  The logic of sensitivity analysis and its examples. 
+-  Fundations of placebo (falsification) tests and consistency tests.
+-  A framework to deal with assumptions.     
 
 
 **Literature.** 
 
 **Lecture notes will be shared. You are recommended to read them before class.** 
 
-**Books (all supplementary)**
+**Main Textbook**
+
+- Chen, X. Assumptions in Causal Inference: Illuminating the Path to Crediblity, forthcoming Foudations and Trends, 2025. 
+
+**Supplementary Books**
 
 -  Gerber, Alan S., and Donald P. Green. Field experiments: Design, analysis, and interpretation. WW Norton, 2012.
 -  Guido W. Imbens and Donald B. Rubin. Causal inference for statistics, social, and biomedical sciences: An Introduction. Cambridge University Press, 2015.
