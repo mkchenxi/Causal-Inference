@@ -3,7 +3,7 @@ Tutorial 2: Fisher and Neyman’s Approach to CRE
 Xi Chen
 2024-06-10
 
-Pleas download “T2_Data.Rdata” for this tutorial.
+Pleas download “T2_Data.Rdata” for the tutorial.
 
 The data for this section `label` describe a field experiment, conducted
 by a marketing research company for Duvel - a Belgian beer brand. The
