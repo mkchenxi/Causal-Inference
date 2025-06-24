@@ -1,7 +1,7 @@
 Tutorial-2: Matching and Weighting Estimator
 ================
 Xi Chen
-2024-06-10
+2025-06-24
 
 Pleas download `T2_Data.Rdata` for this tutorial.
 
