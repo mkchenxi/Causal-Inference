@@ -172,8 +172,7 @@ analysis. To install and use the package, you need to run the following
 R codes:
 
 ``` r
-install.packages("remotes")
-remotes::install_github("asheshrambachan/HonestDiD")
+install.packages("HonestDiD")
 ```
 
 After installation, we first load the package:
