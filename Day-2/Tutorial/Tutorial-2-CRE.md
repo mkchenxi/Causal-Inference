@@ -1,7 +1,7 @@
 Tutorial 2: Fisher and Neyman’s Approach to CRE
 ================
 Xi Chen
-2024-06-10
+2025-06-24
 
 Pleas download “T2_Data.Rdata” for the tutorial.
 
