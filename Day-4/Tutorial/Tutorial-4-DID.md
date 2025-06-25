@@ -206,13 +206,15 @@ Next, we run the sensitivity analysis:
 
 ``` r
 sensitivity_results <-
-  createSensitivityResults_relativeMagnitudes(
-    betahat = betahat,
-    sigma = sigma,
-    numPrePeriods = 5, numPostPeriods = 5, 
-    Mbarvec = seq(0, 2, by = 0.5),
-    l_vec = basisVector(index = 1, size = 5)
-  )
+    createSensitivityResults_relativeMagnitudes(
+    betahat = betahat,                      # Estimated treatment effects (event study coefficients)
+    sigma = sigma,                          # Standard errors of the estimated coefficients
+    numPrePeriods = 5,                      # Number of periods before treatment
+    numPostPeriods = 5,                     # Number of periods after treatment
+    Mbarvec = seq(0, 2, by = 0.5),          # Sensitivity parameter values to test (magnitude of deviation from parallel trends)
+    l_vec = basisVector(index = 1, size = 5) # Linear combination vector selecting 1st post-treatment period (e.g., ATT at t+1)
+)
+
 
 sensitivity_results
 ```
