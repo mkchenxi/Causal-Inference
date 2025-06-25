@@ -215,7 +215,6 @@ sensitivity_results <-
     l_vec = basisVector(index = 1, size = 5) # Linear combination vector selecting 1st post-treatment period (e.g., ATT at t+1)
 )
 
-
 sensitivity_results
 ```
 
