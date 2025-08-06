@@ -1,7 +1,7 @@
 Final assignment - Suggested solutions and rubrics
 ================
 Xi Chen
-2024-07-30
+2025-07-30
 
 # Part I. Quiz Questions
 
@@ -627,3 +627,4 @@ conditional unconfoundedness, there are several ways:
 - Check the internal validity and logic flow of the arguments.
 - Follow the grading criteria on the 2nd page of the assignment for the
   grading.
+
