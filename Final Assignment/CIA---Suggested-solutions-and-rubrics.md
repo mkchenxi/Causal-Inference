@@ -101,7 +101,7 @@ With the permuted GDP gap values, we plot a histogram:
 hist(permute_dr_gap, breaks = 50)
 ```
 
-![](CIA---Suggested-solutions-and-rubrics_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+<img src="https://github.com/mkchenxi/Causal-Inference/blob/main/Final%20Assignment/Fisher_exact_p_value.png?raw=true" width="500"/>
 
 The exact p-value is calculated by the percentage of more extreme values
 than the true GDP growth gap:
@@ -627,4 +627,5 @@ conditional unconfoundedness, there are several ways:
 - Check the internal validity and logic flow of the arguments.
 - Follow the grading criteria on the 2nd page of the assignment for the
   grading.
+
 
