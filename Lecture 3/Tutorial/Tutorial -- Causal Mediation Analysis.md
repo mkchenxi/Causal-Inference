@@ -25,43 +25,9 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 # Install if needed:
 # install.packages(c("mediation", "MASS", "dplyr", "ggplot2", "knitr"))
 
-library(mediation)
-```
-
-    ## Warning: package 'mediation' was built under R version 4.4.3
-
-    ## Loading required package: MASS
-
-    ## Loading required package: Matrix
-
-    ## Loading required package: mvtnorm
-
-    ## Loading required package: sandwich
-
-    ## mediation: Causal Mediation Analysis
-    ## Version: 4.5.1
-
-``` r
+library(mediation) 
 library(MASS)
 library(dplyr)
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following object is masked from 'package:MASS':
-    ## 
-    ##     select
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 library(ggplot2)
 library(knitr)
 
