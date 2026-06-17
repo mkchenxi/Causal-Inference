@@ -51,53 +51,61 @@ Another distinction of the course is its emphasis on practical relevance. Throug
 
 **Structure.** 
 
-Day 1: 
+Lecture 1: 
 
 -  Introduction to causality and causal inference. 
--  Overview of the course. 
+-  Overview of the course.
+
+Lecture 2: 
+
 -  Causal graph: a new language of causality. 
--  Causal identification. 
--  The formulation of an empirical strategy. 
+-  Causal identification and the formulation of an empirical strategy.
+-  Application of DAG in experimental designs.  
 -  Practical session: Using Daggity to draw and analyze causal graphs. 
 
-Day 2:
+Lecture 3:
 
 -  The potential outcome framework. 
 -  The assignment mechanism. 
 -  Fisher vs. Neyman’s treatment of completely randomized experiments. 
--  Counterfactual: Robin vs. Pearl. 
--  Block randomization. 
+-  Counterfactuals: Robin vs. Pearl.
+-  Application of potential outcomes in causal mediation analysis.
+-  Practical session: Fisher vs. Neyman inference approaches; Sensitivity analysis in causal mediation. 
+
+Lecture 4: 
+
+-  Block randomization and block design for marginal treatment effects. 
 -  Selection on observables: subclassification, matching and weighting.  
 -  Practical session: Matching and weighting estimation of the effect of virtual-fitting on sales. 
 
-Day 3:
+Lecture 5:
 
 -  Non-compliance problem in the treatment assignment. 
 -  The intention-to-treat and the local average treatment effect (LATE). 
 -  The link of LATE to the instrumental variables strategy. 
--  The attrition problem after randomization. 
--  Classic treatments of the attrition problem. 
--  The bounding approach and the Lee bound. 
+-  Bounding approach to attribution / data deletion problem (after attention checks or outlier drops).  
 -  Practical session: Estimating LATE in a field experiment of coupons. 
 
-Day 4:
+Lecture 6:
 
 -  Canonical difference-in-difference (DID) model.  
 -  Two-way fixed estimation of the multiple-period DID.
--  DID with staggered adoptions of the treatment. 
+-  DID with staggered adoptions of the treatment.
+-  Practical session: DID analysis of the Low Carbon London Electricity Trial.
+
+Lecture 7: 
 -  The basic idea of the regression continuity design (RDD). 
 -  How to estimate the LATE with RDD. 
 -  Regression kink design and the bunching method. 
--  Practical session: DID analysis of the Low Carbon London Electricity Trial.     
+-  Practical session: RDD in keywords auction.   
 
-
-Day 5: 
+Lecture 8: 
 
 -  Ethics of causal inference: being transparent about your assumptions. 
 -  Assessing the assumption of unconfoundedness. 
 -  The logic of sensitivity analysis and its examples. 
 -  Fundations of placebo (falsification) tests and consistency tests.
--  A framework to deal with assumptions.     
+-  Tutorial: A framework to deal with assumptions.     
 
 
 **Literature.** 
