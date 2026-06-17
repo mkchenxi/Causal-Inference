@@ -1,7 +1,7 @@
 Tutorial-1: More controls, the merrier? Two examples of selecting control variables
 ================
 Xi Chen
-_Last updated: June 21, 2025_
+_Last updated: June 21, 2026_
 
 # **A Short Tutorial on DAGitty**
 
