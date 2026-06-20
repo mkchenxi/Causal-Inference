@@ -86,20 +86,20 @@ Lecture 5:
 -  Bounding approach to attribution / data deletion problem (after attention checks or outlier drops).  
 -  Practical session: Estimating LATE in a field experiment of coupons. 
 
-Lecture 6:
+Lecture 6A:
 
 -  Canonical difference-in-difference (DID) model.  
 -  Two-way fixed estimation of the multiple-period DID.
 -  DID with staggered adoptions of the treatment.
 -  Practical session: DID analysis of the Low Carbon London Electricity Trial.
 
-Lecture 7: 
+Lecture 6B: 
 -  The basic idea of the regression continuity design (RDD). 
 -  How to estimate the LATE with RDD. 
 -  Regression kink design and the bunching method. 
 -  Practical session: RDD in keywords auction.   
 
-Lecture 8: 
+Lecture 7: 
 
 -  Ethics of causal inference: being transparent about your assumptions. 
 -  Assessing the assumption of unconfoundedness. 
