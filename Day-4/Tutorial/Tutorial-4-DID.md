@@ -1,7 +1,7 @@
 Tutorial-4: DID Aanalysis for Low Carbon London Trial
 ================
 Xi Chen
-2025-06-25
+2026-06-22
 
 Load data `T4_Data.Rdata` and view the data head. For the data
 background, please refer to the data description file
@@ -70,7 +70,7 @@ From the results, we have an ATT of -5.49, indicating the electricity
 usage of the treatment group reduces on average by -5.49kWh each week
 under the dynamic pricing.
 
-# Exmaning the parallel trend assumption
+# Exmanining the paralell trend assumption
 
 Next, we run two sets of analyses to examine whether the pre-trends are
 parallel. Hopefully, the checks lend more credibility to the parallel
