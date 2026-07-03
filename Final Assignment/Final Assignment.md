@@ -26,7 +26,7 @@ This is the final integrative assignment for **Causal Inference**. The assignmen
 1. **Quiz questions** on concepts and ideas covered in lectures.
 2. **Empirical questions** based on the dataset `AR_data`.
 
-Please download **`CIA.Rdata`** for the assignment. `CIA` is short for **causal inference assignment**.
+Please download the csv files in the assignment folder: `DR_gap.csv` and `AR_data.csv`.
 
 ### Report format guidelines
 
