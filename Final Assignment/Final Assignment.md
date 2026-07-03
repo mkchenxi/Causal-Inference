@@ -140,7 +140,7 @@ Then, based on these aspects, make your final verdict about the statements of th
 
 ## Question 1.3: Democrat vs. Republican Presidents (10 points)
 
-The US economy has performed better when the president of the United States is a Democrat rather than a Republican.[^1] But is this difference due to pure chance? To check this, run a permutation test, based on the idea of Fisher's exact test, using the dataset `DR_Gap` in the R data file `CIA.Rdata`.
+The US economy has performed better when the president of the United States is a Democrat rather than a Republican.[^1] But is this difference due to pure chance? To check this, run a permutation test, based on the idea of Fisher's exact test, using the dataset `DR_Gap.csv`.
 
 Each row in the data represents one presidential term of four years. The columns are:
 
@@ -208,7 +208,7 @@ In this assignment, we examine the possible downsides of AR applications in reta
 
 ### Variables
 
-To evaluate the effects of AR applications on product returns, an online retailer has shared data recording all purchases over roughly one month. The unit of analysis is a purchase. The data record the cause variable, whether AR was used during the purchase process, and the outcome variable, whether the purchased product was returned. The table below summarizes the variables.
+To evaluate the effects of AR applications on product returns, an online retailer has shared data recording all purchases over roughly one month. The unit of analysis is a purchase. The data record the cause variable, whether AR was used during the purchase process, and the outcome variable, whether the purchased product was returned. The table below summarizes the variables in the data `AR_data.csv`.
 
 | Variable | Coding | Description |
 |---|---|---|
