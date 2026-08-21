@@ -165,7 +165,6 @@ Additional assumptions include:
 
 - **No anticipation:** outcomes should not respond before the GenAI update occurs.
 - **No treatment-correlated contemporaneous shocks:** other changes occurring at the same time as the description update should not differentially affect treated products.
-- **Stable comparison group:** untreated or not-yet-treated products should provide a credible counterfactual for treated products.
 
 Standard errors should generally be clustered at the product level.
 
