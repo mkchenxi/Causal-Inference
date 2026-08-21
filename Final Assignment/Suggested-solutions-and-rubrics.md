@@ -124,7 +124,7 @@ The histogram is 5 points. The exact p-value is also 5 points.
 
 ### Question 1.4.1 The diff-in-diff strategy
 
-Define treatment at the product level. Let \(G_i\) denote the first period in which product \(i\) receives a GenAI-assisted description update, and define
+Define treatment at the product level. Let $G_i$ denote the first period in which product $i$ receives a GenAI-assisted description update, and define
 
 $$
 D_{it} = \mathbf{1}\{t \geq G_i\}.
@@ -141,7 +141,7 @@ Y_{it} =
 \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it},
 $$
 
-where \(\alpha_i\) are product fixed effects and \(\lambda_t\) are time fixed effects. Product fixed effects absorb time-invariant differences across products, while time fixed effects absorb common demand shocks. Category-by-time fixed effects could also be included to account for category-specific demand shocks.
+where $\alpha_i$ are product fixed effects and $\lambda_t$ are time fixed effects. Product fixed effects absorb time-invariant differences across products, while time fixed effects absorb common demand shocks. Category-by-time fixed effects could also be included to account for category-specific demand shocks.
 
 Because treatment adoption is staggered, a conventional two-way fixed-effects estimator may be problematic if treatment effects differ across cohorts or over time since treatment. A preferred approach is therefore a staggered-adoption DiD estimator that estimates cohort-time treatment effects, such as
 
