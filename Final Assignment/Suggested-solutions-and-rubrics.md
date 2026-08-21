@@ -154,10 +154,7 @@ where each treatment cohort is compared with products that are never treated or 
 An event-study specification can also estimate effects relative to the timing of the GenAI update:
 
 $$
-Y_{it} =
-\alpha_i + \lambda_t
-+ \sum_{k \neq -1} \beta_k \mathbf{1}\(t-G_i=k\)
-+ \varepsilon_{it}.
+Y_{it} = \alpha_i + \lambda_t + \sum_{k \neq -1} \beta_k \mathbf{1}(t-G_i=k) + \varepsilon_{it}.
 $$
 
 The event study should be implemented using a staggered-adoption estimator that avoids inappropriate comparisons between already-treated and newly treated products.
