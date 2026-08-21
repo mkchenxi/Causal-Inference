@@ -220,7 +220,8 @@ These tests cannot prove that the parallel-trends assumption holds, since the un
 We first load the data into R”
 
 ``` r
-load("CIA.RData")
+library(readr)
+data <- read_csv("AR_data.csv")
 head(data)
 ```
 
