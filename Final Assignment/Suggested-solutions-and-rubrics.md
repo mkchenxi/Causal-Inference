@@ -126,9 +126,9 @@ The histogram is 5 points. The exact p-value is also 5 points.
 
 Define treatment at the product level. Let \(G_i\) denote the first period in which product \(i\) receives a GenAI-assisted description update, and define
 
-\[
+$$
 D_{it} = \mathbf{1}\{t \geq G_i\}.
-\]
+$$
 
 Products are untreated before their first GenAI update and treated afterward. Products that never receive a GenAI-assisted update during the sample period can serve as controls. Because treatment occurs at different times, products that have not yet been treated can also serve as controls for products treated earlier, provided they are comparable and have not begun anticipating treatment.
 
@@ -136,29 +136,25 @@ Relevant outcomes include page views, clicks, engagement, add-to-cart behavior, 
 
 A basic DiD specification is
 
-\[
-Y_{it}
-=
+$$
+Y_{it} =
 \alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it},
-\]
+$$
 
 where \(\alpha_i\) are product fixed effects and \(\lambda_t\) are time fixed effects. Product fixed effects absorb time-invariant differences across products, while time fixed effects absorb common demand shocks. Category-by-time fixed effects could also be included to account for category-specific demand shocks.
 
 Because treatment adoption is staggered, a conventional two-way fixed-effects estimator may be problematic if treatment effects differ across cohorts or over time since treatment. A preferred approach is therefore a staggered-adoption DiD estimator that estimates cohort-time treatment effects, such as
 
-\[
-ATT(g,t)
-=
-E[Y_{it}(1)-Y_{it}(0)\mid G_i=g],
-\]
+$$
+ATT(g,t) = E[Y_{it}(1)-Y_{it}(0)\mid G_i=g],
+$$
 
 where each treatment cohort is compared with products that are never treated or not yet treated. These cohort-time effects can then be aggregated into an overall treatment effect.
 
 An event-study specification can also estimate effects relative to the timing of the GenAI update:
 
-\[
-Y_{it}
-=
+$$
+Y_{it} =
 \alpha_i + \lambda_t
 +
 \sum_{k \neq -1}
@@ -166,7 +162,7 @@ Y_{it}
 \mathbf{1}\{t-G_i=k\}
 +
 \varepsilon_{it}.
-\]
+$$
 
 The event study should be implemented using a staggered-adoption estimator that avoids inappropriate comparisons between already-treated and newly treated products.
 
@@ -184,10 +180,10 @@ Standard errors should generally be clustered at the product level.
 
 The main empirical diagnostic is an event study with leads and lags of treatment. Under parallel trends and no anticipation, the coefficients before treatment should be approximately zero:
 
-\[
+$$
 \beta_k \approx 0
 \qquad \text{for } k<0.
-\]
+$$
 
 The pre-treatment coefficients should be plotted and can also be tested jointly. If outcomes such as purchases, clicks, or page views begin increasing before the GenAI update, this would raise concerns about parallel trends or anticipation.
 
