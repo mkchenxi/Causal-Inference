@@ -122,28 +122,88 @@ The histogram is 5 points. The exact p-value is also 5 points.
 
 ## Question 1.4
 
-A diff-in-diff strategy can make use two variations:
+### Question 1.4.1 The diff-in-diff strategy
 
-1.  The change of prices in minable cryptocurrencies over time. For
-    example, we can identify some change points in the prices of
-    cryptocurrencies and use the before time as “before treatment” and
-    the after time as “after treatment.”
-2.  For the other variation of the treated vs. non-treated, we can make
-    use of the fact only GPU prices are responsive to the prices
-    cryptocurrencies as the GPUs are the main parts that are used by
-    miners. So, we use GPUs as “treated”, and CPUs or RAMs as
-    “untreated”.
-3.  The model is a linear panel data regression with individual- and
-    time-fixed effects.
-4.  The main assumptions is the parallel trend assumption that the
-    prices of GPUs, CPUs and RAMs would exhibit the same differences in
-    trends, had the prices of cryptocurrencies remained the same.
+Define treatment at the product level. Let \(G_i\) denote the first period in which product \(i\) receives a GenAI-assisted description update, and define
 
-One way to assess the assumption is the knowledge that prices of the
-non-minable cryto-currencies should NOT influence the prices of the
-GPUs. This is called a “pseudo-treatment.” If we run the analysis again
-with the non-minable cryto-currencies, we should not find any treatment
-effect if our identification strategy is valid.
+\[
+D_{it} = \mathbf{1}\{t \geq G_i\}.
+\]
+
+Products are untreated before their first GenAI update and treated afterward. Products that never receive a GenAI-assisted update during the sample period can serve as controls. Because treatment occurs at different times, products that have not yet been treated can also serve as controls for products treated earlier, provided they are comparable and have not begun anticipating treatment.
+
+Relevant outcomes include page views, clicks, engagement, add-to-cart behavior, purchases, and conversion rates. Depending on the outcome, levels, logs, or rates could be used.
+
+A basic DiD specification is
+
+\[
+Y_{it}
+=
+\alpha_i + \lambda_t + \beta D_{it} + \varepsilon_{it},
+\]
+
+where \(\alpha_i\) are product fixed effects and \(\lambda_t\) are time fixed effects. Product fixed effects absorb time-invariant differences across products, while time fixed effects absorb common demand shocks. Category-by-time fixed effects could also be included to account for category-specific demand shocks.
+
+Because treatment adoption is staggered, a conventional two-way fixed-effects estimator may be problematic if treatment effects differ across cohorts or over time since treatment. A preferred approach is therefore a staggered-adoption DiD estimator that estimates cohort-time treatment effects, such as
+
+\[
+ATT(g,t)
+=
+E[Y_{it}(1)-Y_{it}(0)\mid G_i=g],
+\]
+
+where each treatment cohort is compared with products that are never treated or not yet treated. These cohort-time effects can then be aggregated into an overall treatment effect.
+
+An event-study specification can also estimate effects relative to the timing of the GenAI update:
+
+\[
+Y_{it}
+=
+\alpha_i + \lambda_t
++
+\sum_{k \neq -1}
+\beta_k
+\mathbf{1}\{t-G_i=k\}
++
+\varepsilon_{it}.
+\]
+
+The event study should be implemented using a staggered-adoption estimator that avoids inappropriate comparisons between already-treated and newly treated products.
+
+The main identifying assumption is **parallel trends**: absent a GenAI-assisted update, treated products would have experienced similar changes in outcomes as the relevant untreated or not-yet-treated comparison products.
+
+Additional assumptions include:
+
+- **No anticipation:** outcomes should not respond before the GenAI update occurs.
+- **No treatment-correlated contemporaneous shocks:** other changes occurring at the same time as the description update should not differentially affect treated products.
+- **Stable comparison group:** untreated or not-yet-treated products should provide a credible counterfactual for treated products.
+
+Standard errors should generally be clustered at the product level.
+
+### Question 1.4.2 Examining the Identification Assumptions
+
+The main empirical diagnostic is an event study with leads and lags of treatment. Under parallel trends and no anticipation, the coefficients before treatment should be approximately zero:
+
+\[
+\beta_k \approx 0
+\qquad \text{for } k<0.
+\]
+
+The pre-treatment coefficients should be plotted and can also be tested jointly. If outcomes such as purchases, clicks, or page views begin increasing before the GenAI update, this would raise concerns about parallel trends or anticipation.
+
+Placebo tests can provide additional evidence. For example, one could assign a placebo treatment date several periods before the actual update and test whether an apparent treatment effect is detected. Researchers could also exclude periods immediately before treatment if there is reason to believe that the update was anticipated.
+
+A key concern is **endogenous treatment timing**. The company may choose to update products when it expects demand to increase, when products become strategically important, or when other product-page changes are being implemented. In these cases, post-treatment changes in outcomes may not be caused solely by the GenAI-assisted description update.
+
+Several empirical strategies can help address this concern:
+
+- Match or reweight treated and comparison products using product characteristics and pre-treatment outcomes.
+- Include category-by-time fixed effects to absorb category-specific demand shocks.
+- Control for observable concurrent changes such as prices, advertising, images, or other page revisions.
+- Exclude products that undergo major simultaneous changes around the treatment date.
+- Test whether treatment timing is predicted by recent changes in outcomes. If recent increases in demand strongly predict adoption, this would provide evidence of endogenous timing.
+
+These tests cannot prove that the parallel-trends assumption holds, since the untreated post-treatment counterfactual is unobserved. However, they provide evidence on whether the identifying assumptions underlying the DiD design are plausible.
 
 ### Rubrics
 
