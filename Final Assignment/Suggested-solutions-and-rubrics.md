@@ -195,10 +195,15 @@ These tests cannot prove that the parallel-trends assumption holds, since the un
 
 ### Rubrics
 
-For the DiD design, the data (treatment vs. control, before vs. after)
-each 1.5 points. The model and assumption is 1 point each.
+| Component                   |  Points | Full-credit criteria                                                                                                                                                                                              |
+| --------------------------- | ------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Treatment definition**    |     1.0 | Clearly defines treatment as receiving a GenAI-assisted product description update, with treatment beginning at the product-specific update date.                                                                 |
+| **Control group**           |     1.0 | Identifies never-treated and/or not-yet-treated products as the comparison group and explains why already-treated products may be problematic controls under staggered adoption.                                  |
+| **Outcome variables**       |     0.5 | Identifies appropriate product-level market outcomes, such as page views, clicks, engagement, add-to-cart behavior, purchases, or conversion.                                                                     |
+| **Model specification**     |     1.5 | Specifies an appropriate DiD or event-study model with product and time fixed effects and explicitly addresses staggered treatment timing, preferably using cohort-specific or modern staggered-adoption methods. |
+| **Identifying assumptions** |     1.0 | Clearly states the key assumptions, especially parallel trends and no treatment-correlated contemporaneous shocks; may also mention SUTVA/no spillovers or stable treatment definition.                           |
+| **Total**                   | **5.0** |                                                                                                                                                                                                                   |
 
-For the assessment of the assumption, it’s 5 points.
 
 # Part II. Emiprical Questions
 
