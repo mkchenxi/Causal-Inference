@@ -194,6 +194,7 @@ Several empirical strategies can help address this concern:
 These tests cannot prove that the parallel-trends assumption holds, since the untreated post-treatment counterfactual is unobserved. However, they provide evidence on whether the identifying assumptions underlying the DiD design are plausible.
 
 ### Rubrics
+#### Question 1.4.1
 
 | Component                   |  Points | Full-credit criteria                                                                                                                                                                                              |
 | --------------------------- | ------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,6 +204,15 @@ These tests cannot prove that the parallel-trends assumption holds, since the un
 | **Model specification**     |     1.5 | Specifies an appropriate DiD or event-study model with product and time fixed effects and explicitly addresses staggered treatment timing, preferably using cohort-specific or modern staggered-adoption methods. |
 | **Identifying assumptions** |     1.0 | Clearly states the key assumptions, especially parallel trends and no treatment-correlated contemporaneous shocks; may also mention SUTVA/no spillovers or stable treatment definition.                           |
 | **Total**                   | **5.0** |                                                                                                                                                                                                                   |
+#### Question 1.4.2
+
+| Component                                   |  Points | Full-credit criteria                                                                                                                                                                                                                                                                         |
+| ------------------------------------------- | ------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Parallel trends**                         |     2.0 | Proposes examining pre-treatment event-study coefficients, visually and/or through a joint test, and correctly explains that systematic pre-treatment differences would weaken the DiD interpretation.                                                                                       |
+| **No anticipation**                         |     1.0 | Explains how to assess whether outcomes change before the GenAI update, for example through treatment leads, placebo treatment dates, or excluding periods immediately before treatment.                                                                                                     |
+| **Endogenous treatment timing**             |     1.0 | Identifies a plausible timing concern, such as products being updated because demand is expected to increase, because they are strategically important, or because other page changes occur at the same time.                                                                                |
+| **Empirical response to endogenous timing** |     1.0 | Proposes a reasonable empirical strategy, such as conditioning on pre-treatment outcomes, matching/reweighting, category-by-time fixed effects, controlling for concurrent changes, excluding contaminated observations, or testing whether recent outcome changes predict treatment timing. |
+| **Total**                                   | **5.0** |                                                                                                                                                                                                                                                                                              |
 
 
 # Part II. Emiprical Questions
